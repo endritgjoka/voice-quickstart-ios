@@ -11,7 +11,7 @@ import PushKit
 import CallKit
 import TwilioVoice
 
-let accessToken = <#PASTE YOUR ACCESS TOKEN HERE#>
+let accessToken = ProcessInfo.processInfo.environment["TWILIO_TOKEN"] ?? ""
 let twimlParamTo = "to"
 
 let kRegistrationTTLInDays = 365
@@ -70,7 +70,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         toggleUIState(isEnabled: true, showCallControl: false)
         outgoingValue.delegate = self
         
